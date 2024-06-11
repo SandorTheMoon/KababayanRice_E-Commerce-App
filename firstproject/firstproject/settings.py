@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'firstproject.wsgi.application'
 #}
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("postgres://projectdb_9uyn_user:tcflnYj27fIBy5ki4WqISWKtUszTli3v@dpg-cpk87imct0pc73b49gqg-a.singapore-postgres.render.com/projectdb_9uyn"))
 }
 
 

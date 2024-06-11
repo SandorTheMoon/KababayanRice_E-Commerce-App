@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); 
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#RegisterPage {
+    margin-bottom: 0.5in;
+    margin: 40px 20px 20px;
+}
+
+#RegisterPage h5 {
+    margin: 20px 40px 0px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.kababayan {
+    font-weight: bold;
+    color: #006400;
+}
+
+#RegisterPage h2 {
+    margin: 20px 20px 40px;
+}
+
+.Username,
+.Email,
+.Password,
+.Password2,
+.Region,
+.Province,
+.City,
+.Barangay,
+.Postal,
+.Address,
+.Enter{
+    margin: 30px 20px 20px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+.Firstname,
+.LastName {
+    margin: 0px 20px 0px;
+    margin-bottom: -5px;
+}
+
+.Username h4,
+.Firstname h4,
+.LastName h4,
+.Email h4,
+.Password h4,
+.Password2 h4,
+.Region h4,
+.Province h4,
+.City h4,
+.Barangay h4,
+.Postal h4,
+.Address h4,
+.Enter h4{
+    color: gray;
+    margin: 20px 0px 5px;
+}
+
+.Username input[type="text"],
+.Email input[type="email"],
+.Password input[type="password"],
+.Password2 input[type="password"],
+.Region input[type="text"],
+.Province input[type="text"],
+.City input[type="text"],
+.Barangay input[type="text"],
+.Address input[type="text"],
+.Enter input[type="text"]{
+    width: calc(100%);
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Firstname input[type="text"],
+.LastName input[type="text"],
+.Region input[type="text"],
+.Province input[type="text"],
+.City input[type="text"],
+.Barangay input[type="text"],
+.Postal input[type="text"]{
+    width: 150px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    height: 50px;
+    width: calc(100% - 10px);
+    border-radius: 4px;
+    background-color: #006400;
+    color: white; 
+    font-weight: bold;
+    margin-top: 100px;
+}
+
+.Enter p {
+    color: gray;
+    text-align: center;
+    margin: 10px;
+    margin-bottom: 100px; 
+}
+
+.footer {
+    background-color: #006400;
+    padding: 20px;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    height: 2%;
+    width: 100%;
+}

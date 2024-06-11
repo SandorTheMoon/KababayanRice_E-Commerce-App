@@ -1,0 +1,43 @@
+{% extends "Home/navbarAndfooter.html" %}
+{% block NavbarAndFooter %}
+    {{ block.super }}
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/selleranalytics.css' %}">
+    </head>
+    <h1 class="title">Seller's Analytics</h1>
+
+    <form class="back-link" action="{% url 'profile' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Back</button>
+    </form>
+
+    <div class="seller-analytics">
+        <div class="total-orders">
+            <p>Total Orders</p>
+            {{ total_orders }}
+        </div>
+        
+        <div class="orders-to-pack">
+            <p>Orders to Pack</p>
+            {{ orders_to_pack }}
+        </div>
+
+        <div class="orders-to-ship">
+            <p>Orders to Ship</p>
+            {{ orders_to_ship }}
+        </div>
+
+        <div class="orders-to-deliver">
+            <p>Orders to Deliver</p>
+            {{ orders_to_deliver }}
+        </div>
+
+        <div class="total-products">
+            <p>Total Products</p>
+            {{ total_products }}
+        </div>
+    </div>
+{% endblock %}

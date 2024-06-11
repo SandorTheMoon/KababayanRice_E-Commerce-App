@@ -1,0 +1,59 @@
+{% extends "Home/navbarAndfooter.html" %}
+{% block NavbarAndFooter %}
+    {{ block.super }}
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+    </head>
+    <body>
+        <div class="title">
+            <h1>Cart</h1>
+        </div>
+        <form method="post" id="update-cart-form" action="{% url 'update_cart' %}">
+            {% csrf_token %}
+
+            <div class="cart-container">
+                {% for item in cart_items %}
+                    <div class="cart-item">
+
+                        <img src="{{ item.product.product_picture.url }}" class="product-img" alt="Product Image">
+
+                        <div class="product-info">
+                            <div class="product-name_origin">
+                                <h1>{{ item.product.product_name }}</h1>
+                                <p>{{ item.product.product_origin }}</p>
+                            </div>
+
+                            <h2>₱ {{ item.product.product_price }} /kg</h2>
+                            <p><b>Qty: <input type="number" name="quantity_{{ item.id }}" value="{{ item.quantity }}" class="product-quantity"><b></p>
+                        </div>
+                        
+                        <!-- Each Remove button should be in its own form -->
+                        <form action="{% url 'remove_from_cart' item.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-button">
+                                <img class="delete-icon-img" src="{% static 'images/delete-icon.png' %}" style="height: 30px; width: 30px;">
+                            </button>
+                        </form>
+                    </div>
+                {% endfor %}
+            </div>
+            
+        </form>
+
+        <div class="payment-container">
+            <div class="payment">Total Payment: 
+                <br>
+                ₱ {{ total_price }} </div>
+            <button type="submit" form="update-cart-form"><b>Update Cart</b></button>
+            <form action="{% url 'ordersummary' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit"><b>Check Out</b></button>
+            </form>
+        </div>
+    </body>
+</html>
+{% endblock %}

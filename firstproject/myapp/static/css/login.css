@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#LoginPage {
+    margin-bottom: 0.5in;
+    margin: 40px 20px 20px;
+}
+
+#LoginPage h5 {
+    margin: 20px 40px 0px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.kababayan {
+    font-weight: bold;
+    color: #006400;
+}
+
+#LoginPage h2 {
+    margin: 20px 20px 40px;
+}
+
+.Username,
+.Password,
+.Enter {
+    margin: 30px 20px 20px;
+}
+
+.Username h4,
+.Password h4{
+    color: gray;
+    margin: 30px 0px 10px;
+}
+
+input[type="text"],
+input[type="password"]{
+    width: calc(100% - 10px);
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+button[type="submit"]{
+    height: 50px;
+    width: calc(100% - 10px);
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 390px;
+}
+
+button[type="submit"] {
+    background-color: #006400;
+    color: white; 
+    font-weight: bold;
+}
+
+.Enter p {
+    color: gray;
+    text-align: center;
+    margin: 5px;
+}
+
+.footer {
+    background-color: #006400;
+    padding: 20px;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    height: 2%;
+    width: 100%;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/welcome.css' %}">
+    <title>Welcome!</title>
+</head>
+<body>
+    <section>
+        <div class="logo-title">
+            <img src="{% static 'images/kababayan.jpg' %}" alt="logo">
+            <h1>KABAYANRICE</h1>
+        </div>
+
+        <div class="buttons">
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <button class="buyer-btn">Login</button>
+            </form>
+            
+            <form action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                <button class="seller-btn">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="footer"></div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <title>Welcome!</title>
+</head>
+<body>
+    <section id="LoginPage">
+        <h5 class="kababayan">KABABAYANRICE</h5>
+        <h2>User Login</h2>
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    {% if 'login_error' in message.tags %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+
+            {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+            {% endif %}
+            
+            <div class="Username">
+                <h4>Username</h4>
+                <input type="text" name="username" placeholder="Enter username">
+            </div>
+            
+            <div class="Password">
+                <h4>Password</h4>
+                <input type="password" name="password" placeholder="Enter password">
+            </div>
+            
+            <div class="Enter">
+                <button type="submit">LOGIN</button>
+                <p>Don't have an account? <a href="{% url 'signup'%}">Register here</a>.</p>
+            </div>
+        </form>
+    </section>
+    <footer class="footer"></footer>
+</body>
+</html>

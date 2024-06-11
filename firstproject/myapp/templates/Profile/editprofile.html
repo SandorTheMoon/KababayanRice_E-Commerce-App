@@ -1,0 +1,84 @@
+{% extends "Home/navbarAndfooter.html" %}
+{% load static %}
+{% block NavbarAndFooter %}
+    {{ block.super }}
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/editprofile.css' %}">
+    </head>
+    <h1 class="title">Edit User Profile</h1>
+
+    <form class="back-link" action="{% url 'profile' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Back</button>
+    </form>
+
+    <div class="page-container">
+        <form class="editprofile-form" method="post" action="{% url 'editprofile' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <h4>{{ account_form.profile_picture.label }}</h4>
+            {{ account_form.profile_picture }}
+
+            <h4>{{ user_form.username.label }}</h4>
+            {{ user_form.username }}
+
+            <div class="name">
+                <div class="name-container">
+                    <h4 class="f-name">{{ user_form.first_name.label }}</h4>
+                    {{ user_form.first_name }}
+                </div>
+
+                <div class="name-container">
+                    <h4 class="l-name">{{ user_form.last_name.label }}</h4>
+                    {{ user_form.last_name }}
+                </div>
+            </div>
+
+            <h4>{{ user_form.email.label }}</h4>
+            {{ user_form.email }}
+
+            <h4>{{ user_form.password1.label }}</h4>
+            {{ user_form.password1 }}
+
+            <h4>{{ user_form.password2.label }}</h4>
+            {{ user_form.password2 }}
+
+            <div class="address1">
+                <div class="address-container">
+                    <h4>{{ address_form.region.label }}</h4>
+                    {{ address_form.region }}
+                </div>
+
+                <div class="address-container">
+                    <h4>{{ address_form.province.label }}</h4>
+                    {{ address_form.province }}
+                </div>
+
+            </div>
+            
+            <div class="address2">
+                <div class="address-container">
+                    <h4>{{ address_form.city.label }}</h4>
+                    {{ address_form.city }}
+                </div>
+
+                <div class="address-container">
+                    <h4>{{ address_form.barangay.label }}</h4>
+                    {{ address_form.barangay }}
+                </div>
+            </div>
+
+            <h4>{{ address_form.postal_code.label }}</h4>
+            {{ address_form.postal_code }}
+            
+            <h4>{{ address_form.home_address.label }}</h4>
+            {{ address_form.home_address }}
+
+            <button id="EP-SaveButton" type="submit">Save</button>
+
+        </form>
+    </div>
+{% endblock %}

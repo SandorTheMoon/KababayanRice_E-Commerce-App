@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/Home.css' %}">
+    </head>
+    <body>
+        {% block NavbarAndFooter %}
+        <nav>
+            <div class="LeftSide">
+                <img src="{% static 'images/kababayan.jpg' %}" alt="HamburgerNav" id="AppLogo"/>
+                <h1 id="AppName">KABABAYANRICE</h1>
+            </div>
+        </nav>
+        <footer id="FooterButtons">
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'images/cart.png' %}" alt="">
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/home.png' %}" alt="">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'images/profile.png' %}" alt="">
+            </a>
+        </footer>
+        {% endblock %}
+    </body>
+</html>

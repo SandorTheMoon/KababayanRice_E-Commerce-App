@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+nav {
+    background-color: #006400;
+}
+
+#AppName {
+    color: #ffff;
+    font-family: 'Roboto', sans-serif;
+    background-color: #006400;
+}
+
+.LeftSide {
+    background-color: #006400;
+}
+
+/* Edit User Profile */
+.title {
+    margin: 10px 20px;
+}
+
+.back-link {
+    display: inline-block;
+}
+
+.back-link button {
+    margin: 5px 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #006400;
+    border: none;
+    box-shadow: 2px 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}
+
+.editprofile-form {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    width: 75%;
+}
+
+.editprofile-form h4 {
+    color: gray;
+    margin: 15px 0px 5px;
+    font-size: 16px;
+}
+
+.editprofile-form .name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name .name-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.editprofile-form .address1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editprofile-form .address2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.address1 .address-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.address2 .address-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.f-name input[type="text"],
+.l-name input[type="text"] {
+    width: 150px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.editprofile-form input[type="file"] {
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.editprofile-form input[type="text"],
+.editprofile-form input[type="email"],
+.editprofile-form input[type="password"] {
+    width: calc(100% - 10px);
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#EP-SaveButton {
+    margin: auto;
+    background-color: #006400;
+    color: #FFFFFF;
+    padding: 15px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    margin-top: 0.20in;
+    width: 40%;
+    margin-bottom: 1in;
+}

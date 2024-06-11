@@ -1,0 +1,45 @@
+{% extends "Home/navbarAndfooter.html" %}
+{% load static %}
+{% block NavbarAndFooter %}
+    {{ block.super }}
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+    </head>
+    <body>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <div class="container">
+        <form class="logout-link" action="/logout/" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+        <h1>User Profile</h1>
+        <img class="cont-img" src="{{ request.user.account.profile_picture.url }}" alt="Profile Picture" style="height: 50px; width: 50px">
+        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        <div class="text-center">
+            <a href="{% url 'editprofile' %}">
+                <img src="{% static 'images/editprofile.png' %}" alt="">
+                Edit Profile
+            </a>
+            <a href="{% url 'addproduct' %}">
+                <img src="{% static 'images/addproduct.png' %}" alt="">
+                Add Product
+            </a>
+            <a href="{% url 'my_orders' %}">
+                <img src="{% static 'images/myorders.png' %}" alt="">
+                My Orders
+            </a>
+            <a href="{% url 'seller_orders' %}">
+                <img src="{% static 'images/customerorders.png' %}" alt="">
+                Customer Orders
+            </a>
+            <a href="{% url 'seller_analytics' %}">
+                <img src="{% static 'images/selleranalytics.png' %}" alt="">
+                Seller's Analytics
+            </a>
+        </div>
+    </div>
+</body>
+{% endblock %}

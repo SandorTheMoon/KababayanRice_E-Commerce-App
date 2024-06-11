@@ -1,0 +1,59 @@
+<!-- my_orders.html -->
+
+{% extends "Home/navbarAndfooter.html" %}
+{% load static %}
+
+{% block NavbarAndFooter %}
+    {{ block.super }}
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/myorders.css' %}">
+    </head>
+    <body>
+        <h1 class="title">My Orders</h1>
+
+        <form class="back-link" action="{% url 'profile' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Back</button>
+        </form>
+
+        <div class="orders-container">
+            {% if user_orders %}
+                {% for order in user_orders %}
+                    <div class="orders-item">
+
+                        <div class="orders-item-img">
+                            <img src="{{ order.product.product_picture.url }}" class="product-img" alt="{{ order.product.product_name }}">
+                        </div>
+                    
+                        <div class="product-info">
+                            <div class="product-name-origin">
+                                <p>{{ order.timestamp }}</p>
+                                <h1>{{ order.product.product_name }}</h1>
+                                <h3>{{ order.seller.user.username }}</h3>
+                            </div>
+
+                            <div class="product-price-status">
+                                <h2>₱ {{ order.total_price }}</h2>
+                                <h3><b>
+                                {% if order.status == 1 %}
+                                    To pack
+                                {% elif order.status == 2 %}
+                                    To ship
+                                {% elif order.status == 3 %}
+                                    To deliver
+                                {% elif order.status == 4 %}
+                                    Canceled
+                                {% endif %}</b></h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% else %}
+                <p>No orders found.</p>
+            {% endif %}
+        </div>
+    </body>
+{% endblock %}

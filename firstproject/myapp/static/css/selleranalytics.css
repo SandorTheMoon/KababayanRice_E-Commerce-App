@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+nav {
+    background-color: #006400;
+}
+
+#AppName {
+    color: #ffff;
+    font-family: 'Roboto', sans-serif;
+    background-color: #006400;
+}
+
+.LeftSide {
+    background-color: #006400;
+}
+
+/* Seller Analytics */
+.title {
+    margin: 10px 20px;
+}
+
+.back-link {
+    display: inline-block;
+}
+
+.back-link button {
+    margin: 5px 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #006400;
+    border: none;
+    box-shadow: 2px 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.seller-analytics {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    height: 500px;
+    width: 100%;
+    flex-wrap: wrap;
+    font-size: 20px;
+    gap: 0.25in;
+    align-items: center;
+    font-weight: bold;
+}
+
+.total-orders, 
+.orders-to-pack,
+.orders-to-ship, 
+.orders-to-deliver,
+.total-products {
+    height: 125px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.15in;
+    box-shadow: 2px 2px;
+    border-radius: 10%;
+    border-color: black;
+    color:#5F5F5F;
+}
+
+.total-orders p, 
+.orders-to-pack p,
+.orders-to-ship p, 
+.orders-to-deliver p,
+.total-products p {
+    color: black;
+}

@@ -1,0 +1,47 @@
+<!-- order_details.html -->
+{% extends "Home/navbarAndfooter.html" %}
+{% block NavbarAndFooter %}
+    {{ block.super }}
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/orderdetails.css' %}">
+    </head>
+    <body>
+        <h1 class="title">Order Details</h1>
+
+        <form class="back-link" action="{% url 'profile' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Back</button>
+        </form>
+
+        <div class="orders-container">
+
+            <div class="orders-item">
+                <div class="product-info">
+                    <h3>{{ order.product.product_name }}</h3>
+                    <p><b>Quantity:</b> {{ order.quantity }}</p>
+                    <p><b>Total Price:</b>₱ {{ order.total_price }}</p>
+                    <p><b>Buyer:</b> {{ order.user.username }}</p>
+                    <p><b>Buyer's Address:</b> {{ user_shipping_address.home_address }}, {{ user_shipping_address.barangay }}, {{ user_shipping_address.city }}, {{ user_shipping_address.province }}, {{ user_shipping_address.region }}, {{ user_shipping_address.postal_code }}</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <label for="status"><b>Set Status:</b></label>
+                        <select name="status" id="status">
+                            <option value="1">To pack</option>
+                            <option value="2">To ship</option>
+                            <option value="3">To deliver</option>
+                            <option value="4">Canceled</option>
+                        </select>
+                        <button type="submit">Update Status</button>
+                    </form>
+                    <p><b>Current Status:</b> {{ order.get_status_display }}</p>
+                </div>
+
+
+            </div>
+                
+        </div>
+        {% endblock %}
+    </body>

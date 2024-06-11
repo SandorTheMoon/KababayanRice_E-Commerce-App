@@ -1,0 +1,42 @@
+{% extends "Home/navbarAndfooter.html" %}
+{% load static %}
+{% block NavbarAndFooter %}
+    {{ block.super }}
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/productpage.css' %}">
+    </head>
+
+    <body>
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <div class="backlink">
+                <button type="submit">Back</button>
+            </div>   
+        </form>
+
+        <div class="container">
+            <div class="text-center">
+                <div class="img-container">
+                    <img src="{{ product.product_picture.url }}" alt="Product Image">
+                </div>
+                    <div class="prodname">
+                        <h2>{{ product.product_name }}</h2>
+                        <h3>₱ {{ product.product_price }} /kg</h3>
+                        <h4>{{ product.product_origin }}</h4>
+                    </div>
+                    <p class="product-description-title"><b>Product Description:</b></p>
+                    <p ckass="product-description">{{ product.product_description }}</p>
+            </div>
+        </div>
+
+        <form action="{% url 'add_to_cart' product.id %}" method="post">
+            {% csrf_token %}
+            <div class="addtocart">
+                <button type="submit" style="background-image: url('{% static 'images/your_image.jpg' %}');"><b>+Cart</b></button>
+            </div>
+        </form>
+    </body>
+{% endblock %}

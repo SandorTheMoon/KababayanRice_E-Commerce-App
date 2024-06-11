@@ -1,0 +1,73 @@
+{% extends "Home/navbarAndfooter.html" %}
+{% block NavbarAndFooter %}
+    {{ block.super }}
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+    </head>
+<body>
+    <form method="post" action="{% url 'ordersummary' %}">
+        {% csrf_token %}
+        <div class="margin">
+            <div class="checkout-title">
+                <h1>Checkout</h1>
+            </div>
+            
+            <div class="form">
+                <div class="user-info-container">
+                    <h2>User Information</h2>
+                    <div class="Firstname">
+                        <label for="first_name">First Name:</label><br>
+                        <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}" required>
+                    </div>
+                    <div class="Lastname">
+                        <label for="last_name">Last Name:</label><br>
+                        <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}" required>
+                    </div>
+                    <div class="Email">
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email" value="{{ user.email }}" required>
+                    </div>
+                </div>
+                <div class="order-payment-container">
+                    <div class="title-payment">
+                        <h2>Payment Method</h2>
+                    </div>
+                    <div id="radio">
+                        <div class="payment1">
+                            <input type="radio" id="card_payment" name="payment_method" value="card_payment" checked>
+                            <label for="card_payment">Card Payment</label>
+                        </div>
+                        <div class="payment2">
+                            <input type="radio" id="cash_on_delivery" name="payment_method" value="cash_on_delivery">
+                            <label for="cash_on_delivery">Cash on Delivery</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div id="card_details">
+                        <label for="card_number">Card Number:</label>
+                        <input type="text" id="card_number" name="card_number" placeholder="XXXX-XXXX-XXXX-1234">
+                        <label for="expiry_date">Expiry Date:</label>
+                        <input type="text" id="expiry_date" name="expiry_date" placeholder="MM / YY">
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="CCV">
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-container">
+                <div class="payment">
+                    Total Payment: <br>
+                    ₱ {{ total_price }}
+                </div>
+                
+                <button type="submit"><b>Place Order</b></button>
+                
+            </div>
+        </div>
+    </form>
+</body>
+{% endblock %}

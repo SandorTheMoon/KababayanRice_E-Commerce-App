@@ -1,0 +1,60 @@
+<!-- seller_orders.html -->
+{% extends "Home/navbarAndfooter.html" %}
+{% block NavbarAndFooter %}
+    {{ block.super }}
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/sellerorders.css' %}">
+    </head>
+    <h1 class="title">Customer Orders</h1>
+
+    <form class="back-link" action="{% url 'profile' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Back</button>
+    </form>
+
+    <div class="orders-container">
+        {% for order in seller_orders %}
+        <div class="order">
+
+            <div class="order-info">
+                <img src="{{ order.product.product_picture.url }}" alt="{{ order.product.product_name }}" id="product_pic"></td>
+            </div>
+            <div class="order-contain">
+                
+                <div>
+                    <h3>{{ order.product.product_name }}</h3>
+                </div>
+                <div class="order-details-contain">
+                    <div class="order-info1">
+                        <p><b>Kg/s:</b> {{ order.quantity }}</p>
+                        <p><b>Total:</b> ₱ {{ order.total_price }}</p>
+                    </div>  
+                    <div class="order-info2">
+                        <p><b>Status:</b>
+                            {% if order.status %}
+                                {% if order.status == 1 %}
+                                    To pack
+                                {% elif order.status == 2 %}
+                                    To ship
+                                {% elif order.status == 3 %}
+                                    To deliver
+                                {% elif order.status == 4 %}
+                                    Canceled
+                            {% endif %}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div class="order-info3">     
+            <p><a href="{% url 'order_details' order.id %}">View Details</a></p>
+        </div> 
+        {% endfor %}
+    </div>
+{% endblock %}

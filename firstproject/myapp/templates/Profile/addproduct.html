@@ -1,0 +1,46 @@
+{% extends "Home/navbarAndfooter.html" %}
+{% load static %}
+{% block NavbarAndFooter %}
+    {{ block.super }}
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/addproduct.css' %}">
+    </head>
+    <h1 class="title">Add Product</h1>
+    
+    <form class="back-link" action="{% url 'profile' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Back</button>
+    </form>
+
+    <div>
+        <form class="addproduct-form" action="{% url 'addproduct' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <h4>{{ add_product_form.product_picture.label }}</h4>
+            {{ add_product_form.product_picture }}
+
+            {% if add_product_form.product_picture.errors %}
+                <div class="error">
+                    {{ add_product_form.product_picture.errors }}
+                </div>
+            {% endif %}
+
+            <h4>{{ add_product_form.product_name.label }}</h4>
+            {{ add_product_form.product_name }}
+
+            <h4>{{ add_product_form.product_price.label }}</h4>
+            {{ add_product_form.product_price }}
+
+            <h4>{{ add_product_form.product_origin.label }}</h4>
+            {{ add_product_form.product_origin }}
+
+            <h4>{{ add_product_form.product_description.label }}</h4>
+            {{ add_product_form.product_description }}
+
+            <button id="AddProduct-Button" type="submit">Add Product</button>
+        </form>
+    </div>
+{% endblock %}

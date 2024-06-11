@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">    
+    <title>Welcome!</title>
+</head>
+<body>
+    <section id="RegisterPage">
+        <h5 class="kababayan">KABABAYANRICE</h5>
+        <h2>User Registration</h2>
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if user_form.errors %}
+            <ul class="errorlist">
+                {% for error in user_form.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <form method="post" action="{% url 'signup' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="ProfilePicture">
+                <h4>Profile Picture</h4>
+                {{ user_form.profile_picture }}
+            </div>
+    
+            <div class="Username">
+                <h4>{{ user_form.username.label }}</h4>
+                {{ user_form.username }}
+            </div>
+
+            <div class="form-container">
+                <div class="Firstname">
+                    <h4>{{ user_form.first_name.label }}</h4>
+                    {{ user_form.first_name }}
+                </div>
+
+                <div class="LastName">
+                    <h4>{{ user_form.last_name.label }}</h4>
+                    {{ user_form.last_name }}
+                </div>
+            </div>
+    
+            <div class="Email">
+                <h4>{{ user_form.email.label }}</h4>
+                {{ user_form.email }}
+            </div>
+    
+            <div class="Password">
+                <h4>{{ user_form.password1.label }}</h4>
+                {{ user_form.password1 }}
+            </div>
+    
+            <div class="Password2">
+                <h4>{{ user_form.password2.label }}</h4>
+                {{ user_form.password2 }}
+            </div>
+            
+            <div class="form-container">
+                <div class="Region">
+                    <h4>{{ shipping_address_form.region.label }}</h4>
+                    {{ shipping_address_form.region }}
+                </div>
+        
+                <div class="Province">
+                    <h4>{{ shipping_address_form.province.label }}</h4>
+                    {{ shipping_address_form.province }}
+                </div>
+            </div>
+                
+            <div class="form-container">
+                <div class="City">
+                    <h4>{{ shipping_address_form.city.label }}</h4>
+                    {{ shipping_address_form.city }}
+                </div>
+        
+                <div class="Barangay">
+                    <h4>{{ shipping_address_form.barangay.label }}</h4>
+                    {{ shipping_address_form.barangay }}
+                </div>
+            </div>
+            
+            <div class="form-container">
+                <div class="Postal">
+                    <h4>{{ shipping_address_form.postal_code.label }}</h4>
+                    {{ shipping_address_form.postal_code }}        
+                </div>
+            </div>
+    
+            <div class="Address">
+                <h4>{{ shipping_address_form.home_address.label }}</h4>
+                {{ shipping_address_form.home_address }}
+            </div>
+            
+            <div class="Enter">
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="{% url 'login'%}">Login here</a>.</p>
+            </div>
+        </form>
+    </section>
+    <footer class="footer"></footer>
+</body>
+</html>

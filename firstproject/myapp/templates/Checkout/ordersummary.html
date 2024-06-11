@@ -1,0 +1,55 @@
+{% extends "Home/navbarAndfooter.html" %}
+{% load cart_extras %}
+{% block NavbarAndFooter %}
+    {{ block.super }}
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+    </head>
+    <body>
+        <h2>Order Summary</h2>
+        <form method="post" action="{% url 'checkout' %}" class="ordersummary-form-container">
+            {% csrf_token %}
+            <div id="container1">
+                <div class="container1-header">
+                    <h3 class="product-cell1">&nbsp&nbspProduct &nbsp&nbspID</h3>
+                    <h3 class="product-cell1">&nbspProduct</h3>
+                    <h3 class="product-cell1">&nbspPrice</h3>
+                    <h3 class="product-cell1">&nbsp&nbspQuantity</h3>
+                </div>
+                <div class="product-cells">
+                    {% for item in cart_items %}
+                    <div class="container1-header">
+                        <h3 class="product-cell">{{ item.product.id }}</h3>
+                        <h3 class="product-cell">{{ item.product.product_name }}</h3>
+                        <h3 class="product-cell">₱ {{ item.product.product_price }}</h3>
+                        <h3 class="product-cell">{{ item.quantity }}</h3>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="container1-header">
+                <h3 class="title">Sub Total</h3>
+                <div class="title-container">
+                    <h3 class="product-cell">₱ {{ total_price }}</h3>
+                </div>
+            </div>
+            <div class="container1-header">
+                <h3 class="title">Convenience Fee</h3>
+                <div class="title-holder">
+                    <h3 class="product-cell">₱ {{ total_price|convenience_fee }}</h3>
+                </div>
+            </div>
+
+            <div class="payment-container">
+                <div class="payment">Total Payment: <br>₱ {{ total_price|total_convenience_fee }}</div>
+                <button type="submit"><b>Place Order</b></button>
+            </div>
+        </form>
+    </body>
+</html>
+{% endblock %}

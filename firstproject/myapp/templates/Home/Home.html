@@ -1,0 +1,29 @@
+{% extends "Home/navbarAndfooter.html" %}
+{% load static %}
+{% block NavbarAndFooter %}
+    {{ block.super }}
+    <div>
+        <img src="{% static 'images/cover.jpg' %}" alt="Product1" id="Picture"/>
+        <h1 class="home-title">Products</h1>
+        <div id="Products">
+            <div class="all-products">
+                {% for product in products %}
+                    <a href="{% url 'productpage' pk=product.pk %}">
+                        <div class="product">
+        
+                            {% if product.product_picture %}
+                                <img class="try" src="{{ product.product_picture.url }}" alt="Product Image">
+                            {% else %}
+                                <p>No image available</p>
+                            {% endif %}
+                            
+                            <h2><b>{{ product.product_name }}<b></h2>
+                            <p class="origin"><b>{{ product.product_origin }}<b></p>
+                            <p class="price"><b>₱ {{ product.product_price }} /kg<b></p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -22,7 +22,7 @@ section {
 
 /*==========================================*/
 .logo-title {
-    margin-top: 400px;
+    margin-top: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +41,7 @@ section {
 }
 
 .buttons {
-    margin-top: 350px;
+    margin-top: 70%;
     display: flex;
     justify-content: center;
     gap: 15px;

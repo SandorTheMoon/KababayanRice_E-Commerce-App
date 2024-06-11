@@ -94,7 +94,7 @@
 .City input[type="text"],
 .Barangay input[type="text"],
 .Postal input[type="text"]{
-    width: 150px;
+    width: 125px;
     border: 2px solid black;
     border-radius: 5px;
     padding: 10px;

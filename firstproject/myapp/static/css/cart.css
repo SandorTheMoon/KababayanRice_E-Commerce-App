@@ -45,7 +45,6 @@ nav {
 }
 
 .cart-item .delete-button {
-    margin-left: 40px;
     height: 30px;
     width: 30x;
     border: none;
@@ -105,7 +104,8 @@ nav {
 .ordersummary-form-container {
     display: flex;
     flex-direction: column;
-    height: 655px;
+    height: 70vh;
+    align-items: center;
     overflow: auto;
 }
 
@@ -116,7 +116,7 @@ nav {
     height: 80px;
     width: 100% ;   
     background-color: #EEEEEE;
-    top: 86.5%;
+    top: 83.5%;
     justify-content: flex-end;
     align-items: center;
     text-align: right;
@@ -154,7 +154,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 700px;
+    height: 74vh;
     width: 100%;
     overflow: auto;
 }
@@ -193,7 +193,7 @@ nav {
 }
 
 .user-info-container input {
-    width: 340px;
+    width: 35vh;
     border: 2px solid black;
     border-radius: 5px;
     padding: 10px;
@@ -216,7 +216,7 @@ nav {
     display: flex;
     margin-bottom: 10px;
     gap: 10px;
-    width: 320px;
+    width: 35vh;
     padding: 15px;
     border: 2px solid #ccc;
     border-radius: 15px;
@@ -256,7 +256,7 @@ nav {
 }
 
 #card_details input {
-    width: 340px;
+    width: 35vh;
     border: 2px solid black;
     border-radius: 5px;
     padding: 10px;
@@ -265,9 +265,10 @@ nav {
 #container1 {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    align-items: center;
+    width: 85%;
     height: 550px;
-    padding: 20px;
+    padding: 10px;
     border: 2px solid #ccc;
     border-radius: 15px 15px 0px 0px;
     background-color: #fff;
@@ -280,17 +281,20 @@ nav {
     justify-content: center;
     align-items: center;
     padding: 15px;
-    margin: 10px 0;
+    margin: 5px 0;
     background-color: #f4f4f4;
     border: 1px solid #ddd;
     border-radius: 10px;
+    height: 20px;
+    width: 85%;
 }
 
 .product-cell1 {
-    font-size: 20px;
+    text-align: center;
+    font-size: 14px;
     font-weight: bold;
     color: black;
-    margin-right: 20px;
+    margin: 10px;
 }
 
 .product-cells {
@@ -298,17 +302,22 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
 }
 
 .product-cell {
     flex: 0 0 calc(25% - 20px); 
     margin: 10px; 
-    font-size: 18px;
+    font-size: 14px;
     text-align: center;
     width: 69px;
+
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .title {
     display: flex;
     flex-direction: row;

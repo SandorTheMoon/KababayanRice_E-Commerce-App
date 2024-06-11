@@ -57,6 +57,7 @@ div {
     width: 75%;
 }
 
+
 .editprofile-form h4 {
     color: gray;
     margin: 15px 0px 5px;
@@ -131,6 +132,6 @@ div {
     border: none;
     border-radius: 15px;
     margin-top: 0.20in;
-    width: 40%;
+    width: 50%;
     margin-bottom: 1in;
 }

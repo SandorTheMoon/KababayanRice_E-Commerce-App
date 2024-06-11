@@ -91,27 +91,20 @@ def editprofile_page(request):
     current_user = request.user
     shipping_address = current_user.shippingaddress_set.first()
 
-    account = Account.objects.get(user=current_user)
     user_form = EditProfileForm(instance=current_user)
     address_form = ShippingAddressForm(instance=shipping_address)
 
     if request.method == 'POST':
-        account_form = AccountForm(request.POST, request.FILES, instance=account)
         user_form = EditProfileForm (request.POST, instance=current_user)
         address_form = ShippingAddressForm(request.POST, instance=shipping_address)
 
         if user_form.is_valid() and address_form.is_valid():
-            account_form.save()
             user_form.save()
             address_form.save()
             login(request, current_user)
             return redirect('profile')
         
         else:
-            print("Account Form Errors:")
-            for field, errors in account_form.errors.items():
-                for error in errors:
-                    print(f"{field}: {error}")
 
             print("not valid")
             print("User Form Errors:")
@@ -125,11 +118,10 @@ def editprofile_page(request):
                     print(f"{field}: {error}")
     
     else:
-        account_form = AccountForm(instance=account)
         user_form = EditProfileForm(instance=current_user)
         address_form = ShippingAddressForm(instance=shipping_address)
 
-    return render(request, 'Profile/editprofile.html', {'account_form': account_form,'user_form': user_form, 'address_form': address_form})
+    return render(request, 'Profile/editprofile.html', {'user_form': user_form, 'address_form': address_form})
 
 
 def navbarAndfooter(request):

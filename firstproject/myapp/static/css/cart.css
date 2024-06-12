@@ -28,7 +28,7 @@ nav {
 }
 
 #update-cart-form {
-    height: 66vh;
+    height: 68vh;
     overflow: auto;
 }
 
@@ -125,8 +125,7 @@ nav {
     position: relative;
     display: flex;
     height: 80px;
-    width: 100% ;   
-    bottom: -2.1%;
+    width: 100% ;
     background-color: #EEEEEE;
     justify-content: flex-end;
     align-items: center;

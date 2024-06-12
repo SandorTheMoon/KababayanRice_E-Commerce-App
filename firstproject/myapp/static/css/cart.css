@@ -122,12 +122,12 @@ nav {
 
 
 .payment-container {
-    position: absolute;
+    position: relative;
     display: flex;
     height: 80px;
     width: 100% ;   
+    bottom: -2.1%;
     background-color: #EEEEEE;
-    bottom: 0;
     justify-content: flex-end;
     align-items: center;
     text-align: right;

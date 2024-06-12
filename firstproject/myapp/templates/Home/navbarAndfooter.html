@@ -9,10 +9,12 @@
     <body>
         {% block NavbarAndFooter %}
         <nav>
-            <div class="LeftSide">
-                <img src="{% static 'images/kababayan.jpg' %}" alt="HamburgerNav" id="AppLogo"/>
-                <h1 id="AppName">KABABAYANRICE</h1>
-            </div>
+            <a href="{% url 'home' %}" style="text-decoration: none;'">
+                <div class="LeftSide">
+                    <img src="{% static 'images/kababayan.jpg' %}" alt="HamburgerNav" id="AppLogo"/>
+                    <h1 id="AppName">KABABAYANRICE</h1>
+                </div>
+            </a>
         </nav>
         <footer id="FooterButtons">
             <a href="{% url 'cart' %}">

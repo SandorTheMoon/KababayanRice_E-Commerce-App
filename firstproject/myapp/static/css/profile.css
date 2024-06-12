@@ -32,16 +32,23 @@ nav {
     display: inline-block;
 }
 
+.title-logout-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .logout-link button {
-    background-color: #e6e6e6;
-    color: #000;
+    background-color: red;
+    color: white;
     border: none;
     box-shadow: 2px 2px 5px #c5c2c2;
     border-radius: 10px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s;  
 }
 
 .logout-link button:hover {
@@ -49,17 +56,24 @@ nav {
 }
 
 h1 {
-    font-size: 2em;
-    margin: 20px 0;
-    text-align: center;
+    font-size: 1.2em;
+}
+
+.profile-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .cont-img {
     display: block;
-    margin: 20px auto;
-    padding: 10px;
+    margin: 10px 10px;
     border-radius: 50%;
     border: 3px solid #006400;
+    height: 100px;
+    width: 100px;
 }
 
 h3 {
@@ -69,10 +83,19 @@ h3 {
     color: black;
 }
 
+.text-center {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
 .text-center a{
     display: inline-block;
     margin: 15px;
     padding: 10px;
+    height: 90px;
+    width: 80px;
     font-size: 14px;
     text-decoration: none;
     border-radius: 10px;
@@ -100,8 +123,8 @@ h3 {
 }
 
 .container {
-    height: 800px;
-    max-width: 1200px;
+    height: 90vh;
+    max-width: 100%;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;

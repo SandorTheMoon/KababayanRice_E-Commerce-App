@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
     </head>
-    <body>
+    <body class="cart-body">
         <h2>Order Summary</h2>
         <form method="post" action="{% url 'checkout' %}" class="ordersummary-form-container">
             {% csrf_token %}

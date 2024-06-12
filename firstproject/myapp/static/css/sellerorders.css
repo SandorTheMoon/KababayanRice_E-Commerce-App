@@ -23,6 +23,7 @@ nav {
 
 /* My Orders */
 .title {
+    font-size: 1.5em;
     margin: 10px 20px;
 }
 
@@ -71,7 +72,7 @@ nav {
 
 .order p{
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
 }
 
@@ -80,7 +81,7 @@ nav {
     flex-direction: column;
     height: fit-content;
     width: 60%;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .order-details-contain{
@@ -96,7 +97,7 @@ nav {
 }
 
 .order h3 {
-    font-size: 22px;
+    font-size: 18px;
     margin: 10px auto;
     white-space: nowrap;
     overflow: hidden;

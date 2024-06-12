@@ -11,13 +11,19 @@
     <body>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <div class="container">
-        <form class="logout-link" action="/logout/" method="post">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
-        <h1>User Profile</h1>
-        <img class="cont-img" src="{{ request.user.account.profile_picture.url }}" alt="Profile Picture" style="height: 50px; width: 50px">
-        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        <div class="title-logout-container">
+            <h1>User Profile</h1>
+            <form class="logout-link" action="/logout/" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+        
+        <div class="profile-section-container">
+            <img class="cont-img" src="{{ request.user.account.profile_picture.url }}" alt="Profile Picture" style="height: 90px; width: 90px">
+            <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        </div>
+        
         <div class="text-center">
             <a href="{% url 'editprofile' %}">
                 <img src="{% static 'images/editprofile.png' %}" alt="">
@@ -40,6 +46,7 @@
                 Seller's Analytics
             </a>
         </div>
+        
     </div>
 </body>
 {% endblock %}

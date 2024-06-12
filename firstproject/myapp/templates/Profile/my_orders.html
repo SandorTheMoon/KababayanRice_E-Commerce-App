@@ -1,6 +1,7 @@
 <!-- my_orders.html -->
 
 {% extends "Home/navbarAndfooter.html" %}
+{% load cart_extras %}
 {% load static %}
 
 {% block NavbarAndFooter %}
@@ -36,7 +37,7 @@
                             </div>
 
                             <div class="product-price-status">
-                                <h2>₱ {{ order.total_price }}</h2>
+                                <h2>₱ {{ order.total_price|total_convenience_fee }}</h2>
                                 <h3><b>
                                 {% if order.status == 1 %}
                                     To pack

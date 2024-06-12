@@ -63,22 +63,34 @@ nav {
 .orders-to-ship, 
 .orders-to-deliver,
 .total-products {
-    height: 125px;
-    width: 150px;
+    height: 45px;
+    width: 160px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
     gap: 0.15in;
-    box-shadow: 2px 2px;
-    border-radius: 10%;
+    box-shadow: 2px 2px 5px 1px;
+    border-radius: 5px;
     border-color: black;
     color:#5F5F5F;
 }
 
-.total-orders p, 
-.orders-to-pack p,
-.orders-to-ship p, 
-.orders-to-deliver p,
-.total-products p {
+.total-orders .order-title, 
+.orders-to-pack .order-title,
+.orders-to-ship .order-title, 
+.orders-to-deliver .order-title,
+.total-products .order-title {
     color: black;
+    font-size: 14px;
+    width: 70%;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.total-orders .order-num, 
+.orders-to-pack .order-num,
+.orders-to-ship .order-num, 
+.orders-to-deliver .order-num,
+.total-products .order-num {
+    color: black;
+    font-size: 14px;
 }

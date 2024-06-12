@@ -6,6 +6,11 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.db.models import F, Sum
 from django.db.models import Count
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import io
+import base64
 from .forms import RegistrationForm, AccountForm,EditProfileForm, ShippingAddressForm, ProductForm, CheckoutForm
 from .models import Product, CartItem, Account, Order, ShippingAddress
 
@@ -289,18 +294,43 @@ def order_details(request, order_id):
 @login_required(login_url="/login/")
 def seller_analytics(request):
     seller_account = request.user.account
-    
+
+    # Fetch order data
     total_orders = Order.objects.filter(seller=seller_account).count()
     orders_to_pack = Order.objects.filter(seller=seller_account, status=1).count()
     orders_to_ship = Order.objects.filter(seller=seller_account, status=2).count()
     orders_to_deliver = Order.objects.filter(seller=seller_account, status=3).count()
-    total_products = Product.objects.filter(account=seller_account.user).count()
 
-    return render(request, 'Profile/seller_analytics.html', {
+    # Data for the pie chart (excluding total products)
+    data = [orders_to_pack, orders_to_ship, orders_to_deliver]
+    labels = ['Orders to Pack', 'Orders to Ship', 'Orders to Deliver']
+    colors = ['#FF6384', '#36A2EB', '#FFCE56']
+
+    # Handle cases where all data is zero
+    if sum(data) == 0:
+        data = [1, 1, 1]  # Ensure at least minimal non-zero data
+        labels = ['No Orders', 'No Orders', 'No Orders']
+
+    # Generate the pie chart
+    fig, ax = plt.subplots()
+    ax.pie(data, labels=labels, autopct='%1.1f%%', colors=colors, textprops={'fontsize': 16})
+    ax.axis('equal')  # Equal aspect ratio ensures the pie is drawn as a circle.
+
+    # Save it to a BytesIO object
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    plt.close(fig)
+    buf.seek(0)
+
+    # Encode the BytesIO object in base64 and pass it to the template
+    image_base64 = base64.b64encode(buf.getvalue()).decode('utf-8')
+
+    context = {
+        'image_base64': image_base64,
         'total_orders': total_orders,
         'orders_to_pack': orders_to_pack,
         'orders_to_ship': orders_to_ship,
         'orders_to_deliver': orders_to_deliver,
-        'total_products': total_products
-    })
+    }
 
+    return render(request, 'Profile/seller_analytics.html', context)

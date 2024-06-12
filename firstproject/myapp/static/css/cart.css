@@ -17,8 +17,19 @@ nav {
     font-family: 'Roboto', sans-serif;
 }
 
+.cart-body {
+    height: 94.1vh;
+    position: relative;
+}
+
 .title h1{
+    font-size: 1.5em;
     margin: 10px 20px;
+}
+
+#update-cart-form {
+    height: 66vh;
+    overflow: auto;
 }
 
 .cart-container {
@@ -111,12 +122,12 @@ nav {
 
 
 .payment-container {
-    position: fixed;
+    position: absolute;
     display: flex;
     height: 80px;
     width: 100% ;   
     background-color: #EEEEEE;
-    top: 83.5%;
+    bottom: 0;
     justify-content: flex-end;
     align-items: center;
     text-align: right;
@@ -299,7 +310,7 @@ nav {
 
 .product-cells {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     justify-content: center;

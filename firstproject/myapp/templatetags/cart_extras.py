@@ -1,5 +1,6 @@
 # myapp/templatetags/cart_extras.py
 from django import template
+from decimal import Decimal
 
 register = template.Library()
 
@@ -16,5 +17,6 @@ def convenience_fee(total_price):
 
 @register.filter
 def total_convenience_fee(total_price):
-    total = total_price + (total_price * 0.10)
+    convenience_fee_rate = Decimal('0.10')
+    total = total_price + (total_price * convenience_fee_rate)
     return '{:.2f}'.format(total)

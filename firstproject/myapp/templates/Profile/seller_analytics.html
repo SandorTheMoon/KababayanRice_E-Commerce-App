@@ -16,28 +16,24 @@
 
     <div class="seller-analytics">
         <div class="total-orders">
-            <p>Total Orders</p>
-            {{ total_orders }}
+            <p class="order-title">Total Orders:</p>
+            <p class="order-num">{{ total_orders }}</p>
+        </div>
+        <div class="orders-to-pack">
+            <p class="order-title">Orders to Pack:</p>
+            <p class="order-num">{{ orders_to_pack }}</p>
+        </div>
+        <div class="orders-to-ship">
+            <p class="order-title">Orders to Ship:</p>
+            <p class="order-num">{{ orders_to_ship }}</p>
+        </div>
+        <div class="orders-to-deliver">
+            <p class="order-title">Orders to Deliver:</p>
+            <p class="order-num">{{ orders_to_deliver }}</p>
         </div>
         
-        <div class="orders-to-pack">
-            <p>Orders to Pack</p>
-            {{ orders_to_pack }}
-        </div>
-
-        <div class="orders-to-ship">
-            <p>Orders to Ship</p>
-            {{ orders_to_ship }}
-        </div>
-
-        <div class="orders-to-deliver">
-            <p>Orders to Deliver</p>
-            {{ orders_to_deliver }}
-        </div>
-
-        <div class="total-products">
-            <p>Total Products</p>
-            {{ total_products }}
+        <div class="chart">
+            <img src="data:image/png;base64,{{ image_base64 }}" alt="Seller Analytics Pie Chart" style="width:100%; max-width:600px;">
         </div>
     </div>
 {% endblock %}

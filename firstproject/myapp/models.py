@@ -50,7 +50,7 @@ class Order(models.Model):
     payment_method = models.CharField(max_length=20)
     seller = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=[(1, 'To pack'), (2, 'To ship'), (3, 'To deliver'), (4, 'Canceled')], null=True, blank=True)
+    status = models.IntegerField(choices=[(1, 'To pack'), (2, 'To ship'), (3, 'To deliver'), (4, 'Canceled')], default=1, null=True, blank=True)
 
     def __str__(self):
         return f"Order for {self.product.product_name} by {self.user.username}"

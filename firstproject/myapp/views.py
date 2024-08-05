@@ -79,7 +79,7 @@ def signup_page(request):
                 messages.error(request, 'Fill out the necessary informations.')
         else:
             user_form = RegistrationForm()
-            shipping_address_form = ShippingAddressForm ()
+            shipping_address_form = ShippingAddressForm()
 
         return render(request, 'UsersAuthentication/signup.html', {'user_form': user_form, 'shipping_address_form': shipping_address_form})
 

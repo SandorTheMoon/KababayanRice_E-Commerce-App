@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-n#3%p2%78h$jzdrbje4iwp_%0^0y+7&n#=raiate_lo&i2qhm$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['deploykababayanrice.onrender.com']
+ALLOWED_HOSTS = ['*']
 #ALLOWED_HOSTS = []
 
 # Application definition
@@ -84,7 +84,10 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse("postgres://projectdb_9uyn_user:tcflnYj27fIBy5ki4WqISWKtUszTli3v@dpg-cpk87imct0pc73b49gqg-a.singapore-postgres.render.com/projectdb_9uyn")
+# u: kabayanrice_deploy_user
+# p: PddkwK9WCx6ydcLZYalfwnkBKTO3VdNV
+
+DATABASES['default'] = dj_database_url.parse("postgresql://kabayanrice_deploy_user:PddkwK9WCx6ydcLZYalfwnkBKTO3VdNV@dpg-ctsja49u0jms73bb1a60-a.singapore-postgres.render.com/kabayanrice_deploy")
 
 
 # Password validation
